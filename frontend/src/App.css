@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* html, body, heading */
+@layer base {
+  body {
+    @apply bg-[#e5e5e5] text-black !scrollbar-thin !scrollbar-track-transparent !scrollbar-thumb-red-600;
+  }
+
+  header {
+    @apply fixed top-0 z-50 flex w-full bg-[#F3F3F3] text-black items-center justify-between px-4 py-4 transition-all lg:px-10 lg:py-6;
+  }
+}
+
+/* custom classNames */
+@layer components {
+  .headerLink {
+    @apply cursor-pointer text-sm font-light text-black transition duration-[.4s] hover:text-[#0D775E];
+  }
+
+  .bannerButton {
+    @apply flex items-center gap-x-2 rounded px-5 py-1.5 text-sm font-semibold transition hover:opacity-75 md:py-2.5 md:px-8 md:text-xl;
+  }
+
+  .input {
+    @apply w-full rounded bg-[#333] px-5 py-3.5 placeholder-[gray] outline-none focus:bg-[#454545];
+  }
+
+  .badge {
+    @apply absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-[#0D775E] text-white font-light rounded-full px-2 py-1 text-xs
+  }
+
+
+  /* Table */
+  .tableRow {
+    @apply flex flex-wrap items-center font-medium;
+  }
+
+  .tableDataTitle {
+    @apply w-full p-2.5 text-center text-sm font-normal text-white md:w-2/5 md:p-3.5 md:text-left md:text-base;
+  }
+
+  .tableDataFeature {
+    @apply w-[calc(100%/3)] p-2.5 text-center md:w-[calc(60%/3)] md:p-3.5;
+  }
+
+
+  /* MUI Menu */
+  .menu {
+    @apply md:hidden;
+  }
+
+  .menu .MuiPaper-root {
+    @apply !absolute !left-0 !rounded-none !border !border-[gray] !bg-black !text-white;
+  }
+
+  .menu .MuiList-root {
+    @apply !p-0;
+  }
+
+  .menu .MuiMenuItem-root {
+    @apply !block !w-72 !py-3.5 !text-center !text-sm !font-light !text-[#b3b3b3] !transition !duration-200 first:cursor-default first:!font-normal first:!text-white hover:!bg-[#11100F];
+  }
+}
