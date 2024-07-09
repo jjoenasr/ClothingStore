@@ -1,13 +1,14 @@
 import React from 'react'
 import { Product } from '../../typings';
 import { Link } from 'react-router-dom';
+import { API_URL } from '../constants';
 
 const ProductCard = ({ product }: {product: Product}) => {
   return (
     <div className="lg:w-1/4 md:w-1/2 p-4">
       <div className="border rounded-lg overflow-hidden">
         {product.imageURL ? (
-          <img className="w-full object-cover" src={product.imageURL} alt={product.name} />
+          <img className="w-full object-cover" src={API_URL+product.imageURL} alt={product.name} />
         ) : (
           <img className="w-full object-cover" src={process.env.PUBLIC_URL + '/images/placeholder.png'} alt={product.name} />
         )}

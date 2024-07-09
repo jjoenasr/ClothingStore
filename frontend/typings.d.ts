@@ -1,9 +1,12 @@
 export interface Product {
     id: number;
     name: string;
+    get_absolute_url: string;
     description: string;
     get_absolute_url: string;
     imageURL: string | null;
+    price: number;
+    size_convention: number;
     current_price: number;
 }
 

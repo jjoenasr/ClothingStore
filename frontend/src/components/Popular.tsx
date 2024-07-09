@@ -24,8 +24,11 @@ const Popular = () => {
     return (
         <div>
             { products? (
-                <div className='popular-items flex flex-row'>
+                <div>
+                    <h1> Popular </h1>
+                    <div className='popular-items flex flex-row'>
                     {products.map((product, idx) => { return <ProductCard key={idx} product={product} />})}
+                    </div>
                 </div>
             ):(
             <p> No Product found ..</p>

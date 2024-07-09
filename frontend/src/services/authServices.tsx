@@ -1,4 +1,4 @@
-import axiosInstance from "./apiservice";
+import axiosInstance from "./apiService";
 
 export const register = async (first_name: string, last_name: string, email: string, phone:string, password: string) => {
     try {

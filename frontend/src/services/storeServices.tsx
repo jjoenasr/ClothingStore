@@ -1,4 +1,4 @@
-import axiosInstance from "./apiservice";
+import axiosInstance from "./apiService";
 import { ItemCreate, ShippingAddress } from "../../typings";
 
 export const getProducts = async () => {
