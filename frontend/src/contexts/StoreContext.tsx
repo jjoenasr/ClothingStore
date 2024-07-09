@@ -226,7 +226,7 @@ export const ShopContextProvider: React.FC<{ children: React.ReactNode }> = ({ c
 
   const cartTotalPrice = () => {
     return state.cart.reduce((acc:number, curVal:Item) => {
-      return acc += curVal.product.price * curVal.quantity
+      return acc += curVal.product.current_price * curVal.quantity
     }, 0)
   }
 

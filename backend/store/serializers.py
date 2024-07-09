@@ -73,6 +73,7 @@ class OrderItemSerializer(ModelSerializer):
         fields = (
             "product",
             "quantity",
+            "size",
         )
 
 class OrderSerializer(ModelSerializer):

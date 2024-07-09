@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import Button from '@mui/material/Button'
+import {FiMenu} from 'react-icons/fi'
 
 
 const BasicMenu = () => {
@@ -26,7 +27,7 @@ const BasicMenu = () => {
           onClick={handleClick}
           className="!capitalize !text-white"
         >
-          Browse
+          <FiMenu className='h-6 w-6 text-black' aria-hidden='true' />
         </Button>
         <Menu
           id="basic-menu"

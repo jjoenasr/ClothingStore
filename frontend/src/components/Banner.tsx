@@ -7,7 +7,7 @@ const Banner = () => {
     <div className="flex flex-col space-y-2 text-[#333333] md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12">
       <div className="absolute top-0 left-0 -z-10 h-[95vh] w-screen">
         <img
-          src={process.env.PUBLIC_URL + '/images/hero/bg1.jpg'}
+          src={process.env.PUBLIC_URL + '/images/hero/new-collection.jpg'}
           className='w-full h-full object-cover opacity-75'
           alt='poster'
         />
