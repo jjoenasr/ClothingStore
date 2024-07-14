@@ -54,11 +54,15 @@ const Header = () => {
           <p className="hidden lg:inline font-semibold cursor-pointer"> SIGN IN</p>
           <MagnifyingGlassIcon className="hidden h-6 w-6 sm:inline cursor-pointer" />
           <div className='relative inline-block'>
-            <HeartIcon className='h-6 w-6 cursor-pointer' />
+            <Link to="/favorites">
+              <HeartIcon className='h-6 w-6 cursor-pointer' />
+            </Link>
             <span className="badge">{favoritesTotal()}</span>
           </div>
           <div className='relative inline-block'>
-              <ShoppingCartIcon className='h-6 w-6 cursor-pointer' />
+              <Link to="/cart">
+                <ShoppingCartIcon className='h-6 w-6 cursor-pointer' />
+              </Link>
               <span className="badge">{cartTotalItems()}</span>
           </div>
         
