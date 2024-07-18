@@ -1,3 +1,5 @@
 # ClothingStore
 
-Full-Stack Clothing Store Website using Django, Djoser, React, Tailwind
+Full-Stack Clothing Store project using:
+- backend: Django, Django Rest Framework, Djoser
+- frontend:  React, TailwindCSS, Axios

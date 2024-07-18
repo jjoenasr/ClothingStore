@@ -13,7 +13,7 @@ export interface Product {
 export interface Item {
     product: Product;
     quantity: number;
-    size: number;
+    size: string;
 }
 
 export interface ShippingAddress {

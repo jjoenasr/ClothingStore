@@ -42,11 +42,11 @@ const Header = () => {
           <BasicMenu />
   
           <ul className="hidden space-x-4 md:flex">
-            <li className="headerLink">HOME</li>
-            <li className="headerLink">SHOP</li>
-            <li className="headerLink">BLOG</li>
-            <li className="headerLink">ABOUT</li>
-            <li className="headerLink">SERVICES</li>
+            <li className="headerLink"><Link to='/store'>HOME</Link></li>
+            <li className="headerLink"><Link to='/store'>SHOP</Link></li>
+            <li className="headerLink"><Link to='/store'>BLOG</Link></li>
+            <li className="headerLink"><Link to='/store'>ABOUT</Link></li>
+            <li className="headerLink"><Link to='/store'>SERVICES</Link></li>
           </ul>
         </div>
   

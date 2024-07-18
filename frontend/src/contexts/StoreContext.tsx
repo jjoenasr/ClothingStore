@@ -43,7 +43,7 @@ const ShopContext = createContext<{
 
 // Actions
 const ACTIONS = {
-  INITIALIZE_STORE: 'initializeStore',
+  UPDATE_STORE: 'updateStore',
   ADD_TO_CART: 'addToCart',
   REMOVE_FROM_CART: 'removeFromCart',
   CLEAR_CART: 'clearCart',
@@ -57,7 +57,7 @@ const ACTIONS = {
 // Create a reducer function
 const reducer = (state:State, action: any) => {
   switch (action.type) {
-    case ACTIONS.INITIALIZE_STORE:
+    case ACTIONS.UPDATE_STORE:
       const storedCartString = localStorage.getItem('cart');
       const storedCart = storedCartString ? JSON.parse(storedCartString) : initialState.cart;
       const storedFavoritesString = localStorage.getItem('favorites');
@@ -231,12 +231,18 @@ export const ShopContextProvider: React.FC<{ children: React.ReactNode }> = ({ c
   }
 
   const updateCart = () => {
-    dispatch({ type: ACTIONS.INITIALIZE_STORE, });
+    dispatch({ type: ACTIONS.UPDATE_STORE, });
   }
 
   useEffect(() => {
       updateCart()
     }, []);
+
+  /*
+  useEffect(() => {
+    localStorage.setItem('cart',JSON.stringify(state.cart))
+  }, [state.cart]);
+  */
 
   return(
     <ShopContext.Provider value={{
