@@ -17,7 +17,7 @@ class CustomerConfig(UserAdmin):
         (None, {
             "classes": ("wide",),
             "fields": (
-                "email", "password1", "password2", "is_staff",
+                "email", "password1", "password2", 'first_name','last_name', 'phone', "is_staff",
                 "is_active", "user_permissions"
             )}
         ),

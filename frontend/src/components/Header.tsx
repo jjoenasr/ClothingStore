@@ -4,13 +4,14 @@ import{ ShoppingCartIcon, HeartIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 import BasicMenu from './BasicMenu'
 import Avatar from '@mui/material/Avatar';
-import { deepPurple } from '@mui/material/colors';
+import { FaUser } from 'react-icons/fa';
 import { useStore } from '../contexts/StoreContext'
 
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false)
-    const {cartTotalItems, favoritesTotal} = useStore()
+    const {cartTotalItems, favoritesTotal, state} = useStore()
+    const isAuthenticated = state.isAuthenticated
   
     useEffect(() => {
       const handleScroll = () => {
@@ -51,7 +52,6 @@ const Header = () => {
         </div>
   
         <div className="flex items-center space-x-4 text-sm font-light">
-          <p className="hidden lg:inline font-semibold cursor-pointer"> SIGN IN</p>
           <MagnifyingGlassIcon className="hidden h-6 w-6 sm:inline cursor-pointer" />
           <div className='relative inline-block'>
             <Link to="/favorites">
@@ -65,10 +65,15 @@ const Header = () => {
               </Link>
               <span className="badge">{cartTotalItems()}</span>
           </div>
-        
-          <Link to="/account">
-            <Avatar sx={{ bgcolor: deepPurple[500] }} className='cursor-pointer'>J</Avatar>
-          </Link>
+          { isAuthenticated ?
+            <Link to="/account">
+              <Avatar  className='cursor-pointer'><FaUser className='h-6 w-6' /></Avatar>
+            </Link>
+          :
+          <Link to='/login'>
+          <p className="hidden uppercase lg:inline font-semibold cursor-pointer"> Sign In</p>
+        </Link>
+          }
         </div>
       </header>
     )

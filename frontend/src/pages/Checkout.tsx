@@ -17,8 +17,7 @@ const Checkout = () => {
           <Link className="btn-dark mt-3" to="/cart">
             &#x2190; Back to Cart
           </Link>
-          <hr />
-          <h3 className='font-bold mb-3'>Order Summary</h3>
+          <h3 className='font-bold text-2xl my-3'>Order Summary</h3>
           <hr />
           <OrderSummary items={items} />
         </div>

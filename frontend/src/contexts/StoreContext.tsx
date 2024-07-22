@@ -103,7 +103,7 @@ const reducer = (state:State, action: any) => {
       };
 
     case ACTIONS.REMOVE_FROM_CART:
-      const newCart = state.cart.filter(item => item.product.id !== action.payload.item.id);
+      const newCart = state.cart.filter(item => item.product.id !== action.payload.item.product.id);
 
       // Update local storage
       localStorage.setItem('cart', JSON.stringify(newCart));
@@ -151,6 +151,7 @@ const reducer = (state:State, action: any) => {
       };
 
     case ACTIONS.SET_TOKEN:
+      localStorage.setItem("token", action.payload.token)
       return {
         ...state,
         token: action.payload.token,
@@ -158,6 +159,7 @@ const reducer = (state:State, action: any) => {
       };
 
     case ACTIONS.REMOVE_TOKEN:
+      localStorage.removeItem("token")
       return {
         ...state,
         token: '',

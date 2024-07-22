@@ -12,8 +12,8 @@ export const register = async (first_name: string, last_name: string, email: str
 
 export const login = async (email: string, password: string) => {
     try {
-      const response = await axiosInstance.post(`/api/v1/login/`, {email, password});
-      return response.data;
+      const response = await axiosInstance.post(`/api/v1/token/login/`, {email, password});
+      return response.data.auth_token;
     } catch (error) {
       console.error('Error logging in:', error);
       throw error;

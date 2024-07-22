@@ -113,8 +113,9 @@ DJOSER = {
     'USER_CREATE_PASSWORD_RETYPE': True,  # Enable password confirmation during registration
     'SERIALIZERS': {
         'user_create': 'store.serializers.CustomerCreateSerializer',  # Specify your user registration serializer
+        'user_create_password_retype': 'store.serializers.CustomerCreateSerializer',    # user create when retype is true
         'current_user': 'store.serializers.CustomerSerializer', # user info (/me) serializer
-        # 'user' : 'store.serializers.CustomerSerializer' # for /users/ endpoint
+        
     },
 }
 

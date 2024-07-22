@@ -8,8 +8,8 @@ const OrderSummary = ({items}:{ items: Item[] }) => {
   return (
     <div className="flex flex-col">
       {items.map((item, index) => (
-        <div className="flex items-stretch pb-10 mb-5 border-b border-gray-200" key={index}>
-            <div style={{ flex: 2 }}>
+        <div className="flex items-stretch py-5 border-b border-gray-200" key={index}>
+            <div style={{ flex: 1 }}>
                 {item.product.imageURL ? (
                     <img className="w-24" src={API_URL + item.product.imageURL} alt={item.product.name} />
                 ) : (
@@ -28,7 +28,7 @@ const OrderSummary = ({items}:{ items: Item[] }) => {
         </div>
       ))}
     <h5 className="font-bold mt-1">Items: {cartTotalItems()}</h5>
-    <h5 className='font-bold'>Total: ${cartTotalPrice()}</h5>
+    <h5 className='font-bold'>Total: ${cartTotalPrice().toFixed(2)}</h5>
   </div>
   )
 }
