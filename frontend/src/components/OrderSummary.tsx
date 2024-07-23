@@ -11,16 +11,14 @@ const OrderSummary = ({items}:{ items: Item[] }) => {
         <div className="flex items-stretch py-5 border-b border-gray-200" key={index}>
             <div style={{ flex: 1 }}>
                 {item.product.imageURL ? (
-                    <img className="w-24" src={API_URL + item.product.imageURL} alt={item.product.name} />
+                    <img className="w-20" src={API_URL + item.product.imageURL} alt={item.product.name} />
                 ) : (
-                    <img className="w-24" src="/images/placeholder.png" alt={item.product.name} />
+                    <img className="w-20" src="/images/placeholder.png" alt={item.product.name} />
                 )}
             </div>
             <div style={{ flex: 2 }}>
-                <p>{item.product.name}</p>
-            </div>
-            <div style={{ flex: 1 }}>
-                <p>x{item.quantity}</p>
+                <p className="font-semibold">{item.product.name} x {item.quantity}</p>
+				        <p className="font-light">{item.size}</p>
             </div>
             <div style={{ flex: 1 }}>
                 <p><b>${(item.product.price * item.quantity).toFixed(2)}</b></p>
