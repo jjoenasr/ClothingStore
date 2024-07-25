@@ -1,5 +1,5 @@
-from rest_framework.serializers import ModelSerializer, EmailField, CharField
-from store.models import Product, Category, Order, OrderItem, Customer,  ShippingAddress
+from rest_framework.serializers import ModelSerializer, SerializerMethodField, EmailField, CharField
+from store.models import Product, Category, Order, OrderItem, Customer,  ShippingAddress, Size, Inventory
 
 class CustomerSerializer(ModelSerializer):
     class Meta:
@@ -29,7 +29,19 @@ class CustomerCreateSerializer(ModelSerializer):
         )
         return user
 
+class SizeSerializer(ModelSerializer):
+    class Meta:
+        model = Size
+        fields = ['name']
+
+class InventorySerializer(ModelSerializer):
+    size = SizeSerializer()
+    class Meta:
+        model = Inventory
+        fields = ['size', 'quantity']
+
 class ProductSerializer(ModelSerializer):
+    sizes = SerializerMethodField()
     class Meta:
         model = Product
         fields = (
@@ -39,9 +51,14 @@ class ProductSerializer(ModelSerializer):
             "description",
             "price",
             "current_price",
-            'size_convention',
+            'sizes',
             "imageURL",
         )
+    
+    def get_sizes(self, obj):
+        inventory = Inventory.objects.filter(product=obj)
+        sizes = [{'name': i.size.name, 'quantity': i.quantity, 'status': i.status } for i in inventory]
+        return sizes
 
 class CategorySerializer(ModelSerializer):
     products = ProductSerializer(many=True)

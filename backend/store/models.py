@@ -94,6 +94,15 @@ class Inventory(models.Model):
     def __str__(self):
         return f'{self.product.name} - {self.size}'
     
+    @property
+    def status(self):
+        if self.quantity == 0:
+            return 'Out Of Stock'
+        elif self.quantity < 10:
+            return 'Low On Stock'
+        else:
+            return 'Available'
+    
     @receiver(post_save, sender=Product)
     def create_inventory(sender, instance, created, **kwargs):
         if created:

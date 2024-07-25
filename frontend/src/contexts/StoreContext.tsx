@@ -124,15 +124,15 @@ const reducer = (state:State, action: any) => {
       case ACTIONS.ADD_TO_FAVORITES:
         // ... logic for addToCart mutation
         const productToAdd = action.payload.product;
-        updatedItems = [...state.favorites, productToAdd];
+        let updatedFav = [...state.favorites, productToAdd];
   
   
         // Update local storage
-        localStorage.setItem('favorites', JSON.stringify(updatedItems));
+        localStorage.setItem('favorites', JSON.stringify(updatedFav));
   
         return {
           ...state,
-          favorites: updatedItems,
+          favorites: updatedFav,
         };
   
       case ACTIONS.REMOVE_FROM_FAVORITES:

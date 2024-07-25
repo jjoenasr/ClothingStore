@@ -63,7 +63,7 @@ const CartItem = ({item, removeFromCart}:{item:Item, removeFromCart: (data: Item
                 </div>
             </div>
             <div style={{ flex: 1 }}>
-                <p>${(item.product.price * item.quantity).toFixed(2)}</p>
+                <p>${(item.product.current_price * item.quantity).toFixed(2)}</p>
             </div>
             <div style={{ flex: 1 }}>
                 <FaTrash className='text-red-500 chg-quantity cursor-pointer' onClick={remove} />

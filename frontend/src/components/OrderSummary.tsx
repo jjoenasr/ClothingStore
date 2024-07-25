@@ -21,7 +21,7 @@ const OrderSummary = ({items}:{ items: Item[] }) => {
 				        <p className="font-light">{item.size}</p>
             </div>
             <div style={{ flex: 1 }}>
-                <p><b>${(item.product.price * item.quantity).toFixed(2)}</b></p>
+                <p><b>${(item.product.current_price * item.quantity).toFixed(2)}</b></p>
             </div>
         </div>
       ))}

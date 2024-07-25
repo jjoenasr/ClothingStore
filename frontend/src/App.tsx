@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 import Loader from './components/Loader';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
-import Product from './pages/Product';
+import ProductView from './pages/ProductView';
 import Login from './components/Login';
 import Register from './components/Register';
 import Account from './pages/Account';
@@ -27,7 +27,7 @@ function App() {
           <Route path='/store' element={<Home />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/checkout' element={<ProtectedRoute><Checkout /></ProtectedRoute>} />
-          <Route path="/:category_slug/:product_slug/" element={<Product/>} />
+          <Route path="/:category_slug/:product_slug/" element={<ProductView/>} />
         </Routes>
       </div>
       <Footer />

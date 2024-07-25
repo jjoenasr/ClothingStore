@@ -1,25 +1,19 @@
 import React from 'react'
 import { Product } from '../../typings';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { API_URL } from '../constants';
-import{ ShoppingCartIcon, HeartIcon } from '@heroicons/react/24/outline'
+import{ HeartIcon } from '@heroicons/react/24/outline'
 import { useStore } from '../contexts/StoreContext';
 import {  toast } from 'react-toastify';
 
 const ProductCard = ({ product }: {product: Product}) => {
-  const {addToCart} = useStore()
-  const navigate = useNavigate();
+  const {addToFavorites} = useStore()
 
-  const addItem = () => {
-    const item = {
-      product: product,
-      quantity: 1,
-      size: '44'
-    };
+  const addProduct = () => {
+    addToFavorites(product)
 
-    addToCart(item)
 
-    toast.success('The product was added to the cart', {
+    toast.success('The product was added to your favorites', {
       position: 'bottom-right',
       autoClose: 5000,
       hideProgressBar: true,
@@ -27,7 +21,6 @@ const ProductCard = ({ product }: {product: Product}) => {
       closeOnClick: true,
       draggable: true,
     });
-    navigate('/')
   }
 
   return (
@@ -43,8 +36,7 @@ const ProductCard = ({ product }: {product: Product}) => {
         <div className="pt-3 flex flex-1 items-center justify-between">
           <h6 className="font-light">{product.name}</h6>
           <div className='flex items-end '>
-          <HeartIcon className='h-6 w-6 mr-2 cursor-pointer  text-gray-500 hover:text-red-500' />
-          <ShoppingCartIcon className='h-6 w-6 cursor-pointer  text-gray-500 hover:text-black hover:fill-current' onClick={addItem} />
+          <HeartIcon className='h-6 w-6 mr-2 cursor-pointer  text-gray-500 hover:text-red-500' onClick={addProduct} />
           </div>
         </div>
         <p className="pt-1 text-gray-900 font-semibold">£{product.current_price}</p>
