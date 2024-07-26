@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className='pl-4 pt-4 pb-24 lg:space-y-24 lg:pl-16 bg-white'> {/* Margin after NavBar*/}
+      <div className=' pt-[72px] pb-24 lg:space-y-24 lg:pl-16 bg-white'> {/* Margin after NavBar*/}
         <Loader />
         <Routes>
           <Route path='/' element={<Home />} />

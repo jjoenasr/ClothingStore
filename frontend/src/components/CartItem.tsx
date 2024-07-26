@@ -8,12 +8,16 @@ import { Link } from 'react-router-dom';
 const CartItem = ({item, removeFromCart}:{item:Item, removeFromCart: (data: Item) => void}) => {
     const {updateCart, state} = useStore()
     const incrementQuantity = () => {
-        item.quantity += 1
-        update()
+        if (item.quantity<10){
+            item.quantity += 1
+            update()
+        }
     }
     const decrementQuantity = () => {
-        item.quantity -= 1
-        update()
+        if (item.quantity>1){
+            item.quantity -= 1
+            update()
+        }
     }
     const remove = () => {
         removeFromCart(item)

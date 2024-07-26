@@ -82,12 +82,12 @@ const ProductView = () => {
             <img className="h-48 w-full md:h-80 lg:h-96 object-cover" src={process.env.PUBLIC_URL + '/images/placeholder.png'} alt={product.name} />
           )}
           </div>
-          <div className='w-full max-w-xl md:w-1/2 px-4'>
+          <div className='w-full max-w-lg md:w-1/2 px-4'>
           <Link className="btn-dark my-3" to="/">
             &#x2190; Continue Shopping
           </Link>
           <div className='flex flex-col space-y-4'>
-            <h3 className='font-bold text-xl'>{product.name}</h3>
+            <h3 className='font-bold text-2xl'>{product.name}</h3>
             <div className='font-bold'>${product.current_price}</div>
 
             <select
@@ -106,8 +106,8 @@ const ProductView = () => {
               ))}
             </select>
 
-            <div className='flex flex-row justify-between w-full'>
-            <button className='btn-success w-2/3 ' onClick={add}> Add to my basket</button>
+            <div className='flex justify-between w-full'>
+            <button className='btn-success w-2/3 flex-1 ' onClick={add}> Add to my basket</button>
             <div className='flex items-center rounded-full justify-center w-12 h-12 mx-2 border'>
               <HeartIcon className='h-6 w-6 cursor-pointer  text-gray-500 hover:text-red-500' />
             </div>

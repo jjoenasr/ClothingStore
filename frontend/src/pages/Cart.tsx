@@ -9,7 +9,7 @@ const Cart = () => {
   return (
     <div className="flex flex-col">
       <div className="w-full md:w-2/3 mb-4 md:mb-0">
-          <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <div className="bg-white shadow-md rounded border px-8 pt-6 pb-8 mb-4">
               <Link to="/store" className="btn-dark inline-block mb-4">
                   &#x2190; Continue Shopping
               </Link>

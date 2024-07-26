@@ -8,7 +8,7 @@ const OrderSummary = ({items}:{ items: Item[] }) => {
   return (
     <div className="flex flex-col">
       {items.map((item, index) => (
-        <div className="flex items-stretch py-5 border-b border-gray-200" key={index}>
+        <div className="flex items-stretch space-x-1 py-5 border-b border-gray-200" key={index}>
             <div style={{ flex: 1 }}>
                 {item.product.imageURL ? (
                     <img className="w-20" src={API_URL + item.product.imageURL} alt={item.product.name} />

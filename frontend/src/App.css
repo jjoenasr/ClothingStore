@@ -5,7 +5,7 @@
 /* html, body, heading */
 @layer base {
   body {
-    @apply bg-[#e5e5e5] text-black !scrollbar-thin !scrollbar-track-transparent !scrollbar-thumb-red-600;
+    @apply bg-[#e5e5e5] text-black overflow-x-hidden !scrollbar-thin !scrollbar-track-transparent;
   }
 
   header {
@@ -40,42 +40,33 @@
   }
 
   .btn-success {
-    @apply inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg
+    @apply inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-full
   }
 
   .form-control {
     @apply appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500
   }
 
-
-  /* Table */
-  .tableRow {
-    @apply flex flex-wrap items-center font-medium;
+  .cartmodal {
+    @apply fixed top-0 right-0 w-3/4 md:w-1/2 xl:w-1/4 h-screen bg-white z-50 transition-transform translate-x-0 duration-300
   }
 
-  .tableDataTitle {
-    @apply w-full p-2.5 text-center text-sm font-normal text-white md:w-2/5 md:p-3.5 md:text-left md:text-base;
+  .cartoverlay {
+    @apply fixed top-0 left-0 w-full h-full z-40 bg-[rgba(0,0,0,0.7)];
   }
 
-  .tableDataFeature {
-    @apply w-[calc(100%/3)] p-2.5 text-center md:w-[calc(60%/3)] md:p-3.5;
+  .cartmodal.closing {
+    @apply  translate-x-full 
+  }
+
+  .line {
+    @apply flex-1 h-[2px] bg-[rgba(0,0,0,0.1)] mt-[10px]
+  }
+
+  .line.active {
+    @apply bg-[#0d775e]
   }
 
 
-  /* MUI Menu */
-  .menu {
-    @apply md:hidden;
-  }
-
-  .menu .MuiPaper-root {
-    @apply !absolute !left-0 !rounded-none !border !border-[gray] !bg-black !text-white;
-  }
-
-  .menu .MuiList-root {
-    @apply !p-0;
-  }
-
-  .menu .MuiMenuItem-root {
-    @apply !block !w-72 !py-3.5 !text-center !text-sm !font-light !text-[#b3b3b3] !transition !duration-200 first:cursor-default first:!font-normal first:!text-white hover:!bg-[#11100F];
-  }
+ 
 }

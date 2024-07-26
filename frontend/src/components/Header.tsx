@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { MagnifyingGlassIcon} from '@heroicons/react/24/solid'
-import{ ShoppingCartIcon, HeartIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 import BasicMenu from './BasicMenu'
 import Avatar from '@mui/material/Avatar';
 import { FaUser } from 'react-icons/fa';
 import { useStore } from '../contexts/StoreContext'
+import ModalCart from './ModalCart'
 
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false)
-    const {cartTotalItems, favoritesTotal, state} = useStore()
+    const {state} = useStore()
     const isAuthenticated = state.isAuthenticated
   
     useEffect(() => {
@@ -53,18 +53,7 @@ const Header = () => {
   
         <div className="flex items-center space-x-4 text-sm font-light">
           <MagnifyingGlassIcon className="hidden h-6 w-6 sm:inline cursor-pointer" />
-          <div className='relative inline-block'>
-            <Link to="/favorites">
-              <HeartIcon className='h-6 w-6 cursor-pointer' />
-            </Link>
-            <span className="badge">{favoritesTotal()}</span>
-          </div>
-          <div className='relative inline-block'>
-              <Link to="/cart">
-                <ShoppingCartIcon className='h-6 w-6 cursor-pointer' />
-              </Link>
-              <span className="badge">{cartTotalItems()}</span>
-          </div>
+          <ModalCart />
           { isAuthenticated ?
             <Link to="/account">
               <Avatar  className='cursor-pointer'><FaUser className='h-6 w-6' /></Avatar>
