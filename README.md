@@ -6,11 +6,16 @@ Full-Stack Clothing Store project using:
 - frontend:  React, TailwindCSS, Axios
 
 ## Screenshots
-- ![HomePage](https://rb.gy/ulxxee)
-- ![Cart](https://rb.gy/ulxxee)
-- ![Checkout](https://rb.gy/ulxxee)
-- ![Productview](https://rb.gy/ulxxee)
-- [Cart SideBar](https://rb.gy/ulxxee)
+### HomePage
+![HomePage](https://rb.gy/ulxxee)
+### Cart
+![Cart](https://rb.gy/ulxxee)
+### Checkout
+![Checkout](https://rb.gy/ulxxee)
+### ProductView
+![Productview](https://rb.gy/ulxxee)
+### Cart Sidebar 
+![Cart SideBar](https://rb.gy/ulxxee)
 
 ## Setup
 1. Clone the repository:
@@ -51,4 +56,4 @@ cd frontend
 npm start
 ```
 
-3. Open your browser and navigate to 'http://localhost:3000'
+3. Open your browser and navigate to `http://localhost:3000`
