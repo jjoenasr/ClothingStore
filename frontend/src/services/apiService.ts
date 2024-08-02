@@ -12,7 +12,7 @@ const axiosInstance = axios.create({
 const setAuthToken = () => {
   const token = localStorage.getItem('token');
   if (token) {
-    axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    axiosInstance.defaults.headers.common['Authorization'] = `Token ${token}`;
   } else {
     delete axiosInstance.defaults.headers.common['Authorization'];
   }

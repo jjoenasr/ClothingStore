@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { useStore } from '../contexts/StoreContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { ShippingAddress } from '../../typings';
 
-const ShippingInfo = () => {
+const ShippingInfo = ({onSubmit}: {onSubmit:(shippingAddress: ShippingAddress) => void;}) => {
   const [address, setAddress] = useState<string>('')
   const [zipcode, setZipcode] = useState<string>('')
   const [city, setCity] = useState<string>('')
-  const [mystate, setMyState] = useState<string>('')
+  const [state, setState] = useState<string>('')
   const handleSubmit = async(e:React.FormEvent) => {
     e.preventDefault()
+    onSubmit({
+      address, zipcode, city, state
+    })
   }
   return (
     <div className='w-full max-w-xl mx-auto pt-8'>
@@ -53,8 +55,8 @@ const ShippingInfo = () => {
                 type="text" 
                 name="state" 
                 placeholder="State.."
-                value={mystate}
-                onChange={(e) => { setMyState(e.target.value)}} 
+                value={state}
+                onChange={(e) => { setState(e.target.value)}} 
               />
             </div>
             <div className="w-full md:w-1/2 px-3 mb-6">

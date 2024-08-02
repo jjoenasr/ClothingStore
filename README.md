@@ -1,9 +1,7 @@
 # ClothingStore
 
 ## Description
-Full-Stack Clothing Store project using:
-- backend: Django, Django Rest Framework, Djoser
-- frontend:  React, TailwindCSS, Axios
+Full-stack Clothing Store web application built with Django REST Framework (DRF) as backend, React as frontend and TailwindCSS for styling.
 
 ## Screenshots
 ### HomePage
@@ -18,29 +16,24 @@ Full-Stack Clothing Store project using:
 ![Cart SideBar](https://rb.gy/ulxxee)
 
 ## Setup
-1. Clone the repository:
+1. Clone the repository
 ```
 git clone https://github.com/jjoenasr/ClothingStore
 ```
 
-2. Install Dependencies:
-
-- Backend:
+2. Backend Setup
 ```
 cd backend
-pip install requirements.txt
+# Install dependencies
+pip install -r requirements.txt
+# Apply migrations
+python manage.py migrate
 ```
 
-- Frontend:
+3. Frontend Setup
 ```
 cd frontend
 npm install
-```
-
-3. Run DataBase Migrations:
-```
-cd backend
-python manage.py migrate
 ```
 
 ## Usage

@@ -1,4 +1,4 @@
-from rest_framework.serializers import ModelSerializer, SerializerMethodField, EmailField, CharField
+from rest_framework.serializers import ModelSerializer, SerializerMethodField, SlugRelatedField, ValidationError, EmailField, CharField
 from store.models import Product, Category, Order, OrderItem, Customer,  ShippingAddress, Size, Inventory
 
 class CustomerSerializer(ModelSerializer):
@@ -84,7 +84,8 @@ class ShippingAddressSerializer(ModelSerializer):
             "zipcode",
         )
 
-class OrderItemSerializer(ModelSerializer):    
+class OrderItemSerializer(ModelSerializer):
+    size = SlugRelatedField(slug_field='name', queryset=Size.objects.all())    
     class Meta:
         model = OrderItem
         fields = (
@@ -92,6 +93,17 @@ class OrderItemSerializer(ModelSerializer):
             "quantity",
             "size",
         )
+    
+    def validate(self, data):
+        product = data.get('product')  # This will be a Product instance if resolved
+        size = data.get('size')  # This will be a Size instance if resolved
+
+        if product and size:
+            # Ensure that size is valid for the product
+            if not product.available_sizes.filter(pk=size.pk).exists():
+                raise ValidationError({'size': 'Size is not valid for the selected product'})
+        
+        return data
 
 class OrderSerializer(ModelSerializer):
     items = OrderItemSerializer(many=True)
