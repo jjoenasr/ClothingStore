@@ -8,7 +8,7 @@ import { toast } from 'react-toastify'
 import { ShippingAddress } from '../../typings'
 
 const Checkout = () => {
-  const {state, clearCart} = useStore()
+  const {state, clearCart, cartTotalPrice, cartTotalItems} = useStore()
   const items = state.cart
   const navigate = useNavigate()
 
@@ -50,7 +50,7 @@ const Checkout = () => {
         <div className=''>
           <h3 className='font-bold text-2xl my-3'>Order Summary</h3>
           <hr />
-          <OrderSummary items={items} />
+          <OrderSummary items={items} totalItems={cartTotalItems()} totalPrice={cartTotalPrice()} />
         </div>
       </div>
     </div>

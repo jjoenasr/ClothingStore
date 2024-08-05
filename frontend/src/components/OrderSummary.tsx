@@ -1,10 +1,8 @@
 import React from 'react'
-import { useStore } from '../contexts/StoreContext'
 import { Item } from '../../typings'
 import { API_URL } from '../constants'
 
-const OrderSummary = ({items}:{ items: Item[] }) => {
-  const { cartTotalPrice, cartTotalItems } = useStore()
+const OrderSummary = ({items, totalItems, totalPrice}:{ items: Item[], totalItems: number, totalPrice:number }) => {
   return (
     <div className="flex flex-col">
       {items.map((item, index) => (
@@ -25,8 +23,8 @@ const OrderSummary = ({items}:{ items: Item[] }) => {
             </div>
         </div>
       ))}
-    <h5 className="font-bold mt-1">Items: {cartTotalItems()}</h5>
-    <h5 className='font-bold'>Total: ${cartTotalPrice().toFixed(2)}</h5>
+    <h5 className="font-bold mt-1">Items: {totalItems}</h5>
+    <h5 className='font-bold'>Total: ${totalPrice.toFixed(2)}</h5>
   </div>
   )
 }

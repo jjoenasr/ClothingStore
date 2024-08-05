@@ -32,13 +32,10 @@ const Header = () => {
     return (
       <header>
         <div className="flex items-center space-x-2 md:space-x-10">
-          <img
-            src={process.env.PUBLIC_URL + '/images/logo.png'}
-            width={150}
-            height={150}
-            className="cursor-pointer object-contain"
-            alt='logo'
-          />
+          <div className="flex-shrink-0">
+            <Link to="/store" className="text-xl font-extrabold text-[#0D775E] uppercase">Urban Threads</Link>
+          </div>
+          
   
           <BasicMenu />
   

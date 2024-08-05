@@ -77,9 +77,9 @@ const ProductView = () => {
         <div className='flex flex-wrap'>
           <div className='w-full md:w-1/2 justify-end px-2'>
           {product.imageURL ? (
-            <img className="h-48 w-full md:h-80 lg:h-auto object-cover" src={API_URL+product.imageURL} alt={product.name} />
+            <img className="w-full h-auto object-cover" src={API_URL+product.imageURL} alt={product.name} />
           ) : (
-            <img className="h-48 w-full md:h-80 lg:h-96 object-cover" src={process.env.PUBLIC_URL + '/images/placeholder.png'} alt={product.name} />
+            <img className="w-full h-auto object-cover" src={process.env.PUBLIC_URL + '/images/placeholder.png'} alt={product.name} />
           )}
           </div>
           <div className='w-full max-w-lg md:w-1/2 px-4'>

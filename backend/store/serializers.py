@@ -133,12 +133,14 @@ class OrderSerializer(ModelSerializer):
 
 class MyOrderItemSerializer(ModelSerializer):    
     product = ProductSerializer()
+    size = SlugRelatedField(slug_field='name', queryset=Size.objects.all())
 
     class Meta:
         model = OrderItem
         fields = (
             "product",
             "quantity",
+            "size"
         )
 
 class OrderListSerializer(ModelSerializer):
@@ -150,5 +152,6 @@ class OrderListSerializer(ModelSerializer):
             "id",
             "number",
             "items",
-            "paid_amount"
+            "paid_amount",
+            "total_items"
         )

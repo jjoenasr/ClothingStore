@@ -5,15 +5,17 @@ Full-stack Clothing Store web application built with Django REST Framework (DRF)
 
 ## Screenshots
 ### HomePage
-![HomePage](https://rb.gy/ulxxee)
+![HomePage](https://i.imgur.com/zdznUvq.png)
 ### Cart
-![Cart](https://rb.gy/ulxxee)
+![Cart](https://i.imgur.com/TNVdGTO.png)
 ### Checkout
-![Checkout](https://rb.gy/ulxxee)
+![Checkout](https://i.imgur.com/QJWohqO.png)
 ### ProductView
-![Productview](https://rb.gy/ulxxee)
+![Productview](https://i.imgur.com/71MzQXo.png)
 ### Cart Sidebar 
-![Cart SideBar](https://rb.gy/ulxxee)
+![Cart SideBar](https://i.imgur.com/HCrzgMj.png)
+### Account
+![Account](https://i.imgur.com/nBAODRH.png)
 
 ## Setup
 1. Clone the repository
@@ -24,9 +26,7 @@ git clone https://github.com/jjoenasr/ClothingStore
 2. Backend Setup
 ```
 cd backend
-# Install dependencies
 pip install -r requirements.txt
-# Apply migrations
 python manage.py migrate
 ```
 

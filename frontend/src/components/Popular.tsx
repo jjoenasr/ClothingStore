@@ -28,8 +28,8 @@ const Popular = () => {
         <div>
             { products? (
                 <div className='bg-white text-black py-8 '>
-                    <nav className="w-full z-30 top-0 px-6 py-1">
-                        <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
+                    <nav className="w-full z-30 top-0 py-1">
+                        <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-1 py-3">
                             <Link className="uppercase font-bold text-gray-800 text-xl " to="#">
                                 Popular
                                 <hr className="w-200 h-1.5 rounded-full bg-gray-900"/>
@@ -50,7 +50,11 @@ const Popular = () => {
                         
                     </nav>
                     <div className='container mx-auto flex items-center flex-wrap pt-4 pb-12'>
-                    {products.map((product, idx) => { return <ProductCard key={idx} product={product} />})}
+                    {products.map((product, idx) => { return (
+                        <div className='lg:w-1/4 md:w-1/3 p-6 w-1/2' key={idx}>
+                            <ProductCard product={product} />
+                        </div>
+                    )})}
                     </div>
                 </div>
             ):(

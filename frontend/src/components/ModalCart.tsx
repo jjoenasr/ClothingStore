@@ -3,11 +3,13 @@ import{ ShoppingCartIcon, HeartIcon } from '@heroicons/react/24/outline'
 import { Link, useNavigate } from 'react-router-dom'
 import { useStore } from '../contexts/StoreContext'
 import OrderSummary from './OrderSummary'
+import ProductCard from './ProductCard'
 
 
 const ModalCart = () => {
-  const {cartTotalItems, favoritesTotal, state} = useStore()
+  const {cartTotalItems, cartTotalPrice, favoritesTotal, state} = useStore()
   const items = state.cart
+  const favorites = state.favorites
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const [isClosing, setIsClosing] = useState<boolean>(false)
   const [activeTab, setActiveTab] = useState<string>('cart')
@@ -71,17 +73,22 @@ const ModalCart = () => {
           </div>
           { activeTab==='cart' ? (
             <div className='flex flex-col space-y-2' >
-            <OrderSummary items={items} />
+            <OrderSummary items={items} totalItems={cartTotalItems()} totalPrice={cartTotalPrice()} />
             <button className="flex-1 btn-dark mt-3" onClick={()=> {closeModal(); navigate('/cart'); }}> View Cart</button>
             </div>
           ) : (
-            <>
-            Show Product
-            </>
+            <div className='flex flex-col space-y-2 mt-3'>
+            { favorites?.map((product )=> (
+              <div className='w-full p-2'>
+                <ProductCard product={product} key={product.id} />
+              </div>
+              ) )}
+            </div>
           )}
-        </div>
+            </div>
         </>
       )}
+
     </>
   )
 }

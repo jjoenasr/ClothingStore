@@ -40,3 +40,11 @@ export interface User {
     email: string;
     phone: string;
 }
+
+export interface Order {
+    id: number;
+    number: string;
+    items: Item[];
+    paid_amount: number;
+    total_items: number;
+}

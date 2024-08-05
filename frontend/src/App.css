@@ -48,7 +48,7 @@
   }
 
   .cartmodal {
-    @apply fixed top-0 right-0 w-3/4 md:w-1/2 xl:w-1/4 h-screen bg-white z-50 transition-transform translate-x-0 duration-300
+    @apply fixed top-0 right-0 w-3/4 md:w-1/2 xl:w-1/4 h-screen bg-white z-50 transition-transform translate-x-0 duration-300 overflow-y-auto
   }
 
   .cartoverlay {
