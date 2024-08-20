@@ -1,31 +1,45 @@
-from django.shortcuts import redirect
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from rest_framework.response import Response
 from store.models import Product, Category, Order, Inventory
-from .serializers import ProductSerializer, CategorySerializer, OrderListSerializer, OrderSerializer, CustomerSerializer
+from .serializers import ProductSerializer, CategorySerializer, OrderListSerializer, OrderSerializer
 from rest_framework import status, authentication, permissions
 from rest_framework.views import APIView
 from django.contrib.auth.models import User
 from django.db.models import Q
 from django.http import Http404
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import OrderingFilter
+from .filters import ProductFilter
+from rest_framework.generics import ListAPIView
+from rest_framework.pagination import PageNumberPagination
+
+class ProductPagination(PageNumberPagination):
+    page_size = 5
+    page_size_query_param = 'page_size'
+    max_page_size = 1000
 
 
 # Create your views here.
-@api_view(['GET'])
-@permission_classes((permissions.AllowAny,))
-def getProducts(request):
-    products = Product.objects.all()
-    serializer = ProductSerializer(products, many=True)
-    return Response(serializer.data)
+class ProductListView(ListAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    filter_backends = [DjangoFilterBackend, OrderingFilter]
+    filterset_class = ProductFilter
+    ordering_fields = ['name', 'date_added']
+    ordering = ['-date_added']
+    pagination_class = ProductPagination
+    permission_classes = [permissions.AllowAny]
 
 
-class LatestProductList(APIView):
-    def get(self, request, format=None):
-        products = Product.objects.all()[:10]
-        serializer = ProductSerializer(products, many=True)
-        return Response(serializer.data)
+class LatestProductList(ListAPIView):
+    queryset = Product.objects.all().order_by('-date_added')[:10]
+    serializer_class = ProductSerializer
+    permission_classes = [permissions.AllowAny]
+    authentication_classes = []
     
 class ProductDetail(APIView):
+    permission_classes = [permissions.AllowAny]
+    authentication_classes = []
     def get_object(self, category_slug, product_slug):
         try:
             return Product.objects.filter(category__slug=category_slug).get(slug=product_slug)
@@ -52,14 +66,14 @@ class CategoryDetail(APIView):
 @api_view(['GET'])
 @permission_classes((permissions.AllowAny,))
 def search(request):
-    query = request.GET.get('query', '')
+    query = request.GET.get('q', '')
 
     if query:
         products = Product.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))
         serializer = ProductSerializer(products, many=True)
         return Response(serializer.data)
     else:
-        return Response({"products": []})
+        return Response({"results": []})
 
 # Get order list for specific user
 @authentication_classes([authentication.TokenAuthentication])
