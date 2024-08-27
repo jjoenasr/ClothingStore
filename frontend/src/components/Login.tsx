@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useStore } from '../contexts/StoreContext'
 import { login } from '../services/authServices'
 import { Link, useNavigate } from 'react-router-dom'
+import { FaLock } from 'react-icons/fa'
+import { MdOutlineAlternateEmail } from "react-icons/md";
 
 const Login = () => {
     const [email, setEmail] = useState<string>('')
@@ -28,36 +30,43 @@ const Login = () => {
     return (
         <div className="w-full max-w-xs mx-auto pt-8">
             <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mt-4 mb-4" onSubmit={handleSubmit}>
+                <h2 className='font-bold text-center mb-6 text-4xl'>Sign In</h2>
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+                    <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="email">
                         Email
                     </label>
-                    <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="janedoe@example.com"
-                    required
-                    autoFocus
-                    value={email}
-                    onChange={(e) => { setEmail(e.target.value)}}
-                    />
+                    <div className="flex items-center border-2 py-2 px-3 rounded-md mb-4">
+                        <MdOutlineAlternateEmail className='h-5 w-5 text-gray-400' />
+                        <input
+                        className="pl-3 outline-none border-none w-full text-gray-700"
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="guest@example.com"
+                        required
+                        autoFocus
+                        value={email}
+                        onChange={(e) => { setEmail(e.target.value)}}
+                        />
+                    </div>
                 </div>
                 <div className="mb-6">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+                    <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="password">
                         Password
                     </label>
-                    <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                    id="password"
-                    name='password'
-                    type="password"
-                    required
-                    placeholder="********"
-                    value={password}
-                    onChange={(e) => { setPassword(e.target.value)}}
+                    <div className="flex items-center border-2 py-2 px-3 rounded-md mb-4">
+                        <FaLock className="h-5 w-5 text-gray-400"/>
+                        <input
+                        className="pl-3 outline-none border-none w-full text-gray-700"
+                        id="password"
+                        name='password'
+                        type="password"
+                        required
+                        placeholder="************"
+                        value={password}
+                        onChange={(e) => { setPassword(e.target.value)}}
                     />
+                    </div>
                     {errors.length > 0 && (
                         <p className="text-red-500 text-xs italic">{errors[errors.length - 1]}</p>
                     )}
@@ -75,7 +84,7 @@ const Login = () => {
                 </div>
             </form>
             <p className="text-center text-gray-500 text-xs">
-                &copy;2020 Acme Corp. All rights reserved.
+                &copy;2024 Acme Corp. All rights reserved.
             </p>
         </div>
     )
