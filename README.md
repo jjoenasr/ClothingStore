@@ -4,18 +4,19 @@
 Full-stack Clothing Store web application built with Django REST Framework (DRF) as backend, React as frontend and TailwindCSS for styling.
 
 ## Screenshots
+
 ### HomePage
-![HomePage](https://i.imgur.com/zdznUvq.png)
+![HomePage](screenshots/Home.png)
 ### Cart
-![Cart](https://i.imgur.com/TNVdGTO.png)
+![Cart](screenshots/Cart.png)
 ### Checkout
-![Checkout](https://i.imgur.com/QJWohqO.png)
+![Checkout](screenshots/Checkout.png)
 ### ProductView
-![Productview](https://i.imgur.com/71MzQXo.png)
+![Productview](screenshots/ProductView.png)
 ### Cart Sidebar 
-![Cart SideBar](https://i.imgur.com/HCrzgMj.png)
+![Cart SideBar](screenshots/Sidebar.png)
 ### Account
-![Account](https://i.imgur.com/nBAODRH.png)
+![Account](screenshots/Account.png)
 
 ## Setup
 1. Clone the repository
