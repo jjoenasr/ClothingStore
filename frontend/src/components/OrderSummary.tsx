@@ -8,11 +8,7 @@ const OrderSummary = ({items, totalItems, totalPrice}:{ items: Item[], totalItem
       {items.map((item, index) => (
         <div className="flex items-stretch space-x-1 py-5 border-b border-gray-200" key={index}>
             <div style={{ flex: 1 }}>
-                {item.product.imageURL ? (
-                    <img className="w-20" src={API_URL + item.product.imageURL} alt={item.product.name} />
-                ) : (
-                    <img className="w-20" src="/images/placeholder.png" alt={item.product.name} />
-                )}
+              <img width={100} height={100} src={item.product.imageURL ? API_URL + item.product.imageURL : process.env.PUBLIC_URL + "/images/placeholder.png"} alt={item.product.name} />
             </div>
             <div style={{ flex: 2 }}>
                 <p className="font-semibold">{item.product.name} x {item.quantity}</p>

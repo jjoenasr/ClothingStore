@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { MagnifyingGlassIcon} from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom'
 import BasicMenu from './BasicMenu'
@@ -9,26 +9,9 @@ import ModalCart from './ModalCart'
 
 
 const Header = () => {
-    const [isScrolled, setIsScrolled] = useState(false)
     const {state} = useStore()
     const isAuthenticated = state.isAuthenticated
-  
-    useEffect(() => {
-      const handleScroll = () => {
-        if (window.scrollY > 0) {
-          setIsScrolled(true)
-        } else {
-          setIsScrolled(false)
-        }
-      }
-  
-      window.addEventListener('scroll', handleScroll)
-  
-      return () => {
-        window.removeEventListener('scroll', handleScroll)
-      }
-    }, [])
-  
+
     return (
       <header>
         <div className="flex items-center space-x-2 md:space-x-10">
@@ -42,9 +25,8 @@ const Header = () => {
           <ul className="hidden space-x-4 md:flex">
             <li className="headerLink"><Link to='/store'>HOME</Link></li>
             <li className="headerLink"><Link to='/store'>SHOP</Link></li>
-            <li className="headerLink"><Link to='/store'>BLOG</Link></li>
+            <li className="headerLink"><Link to='/cart'>BASKET</Link></li>
             <li className="headerLink"><Link to='/store'>ABOUT</Link></li>
-            <li className="headerLink"><Link to='/store'>SERVICES</Link></li>
           </ul>
         </div>
   

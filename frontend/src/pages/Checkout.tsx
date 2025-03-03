@@ -33,13 +33,13 @@ const Checkout = () => {
         draggable: true,
       });
 
-    } catch(error:any){
+    } catch(error:unknown){
       console.error("Error: ", error)
     }
 
   }
   return (
-    <div className='flex flex-wrap'>
+    <div className='flex flex-wrap pt-[96px] lg:pl-10'>
       <div className='w-full md:w-1/2 mx-1'>
         <Link className="btn-dark mt-3" to="/cart">
           &#x2190; Back to Cart
@@ -47,7 +47,7 @@ const Checkout = () => {
         <ShippingInfo onSubmit={submitOrder} />
       </div>
       <div className='w-full max-w-xl md:w-1/2'>
-        <div className=''>
+        <div className='mx-2'>
           <h3 className='font-bold text-2xl my-3'>Order Summary</h3>
           <hr />
           <OrderSummary items={items} totalItems={cartTotalItems()} totalPrice={cartTotalPrice()} />

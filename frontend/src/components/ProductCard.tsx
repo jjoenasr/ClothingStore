@@ -14,7 +14,7 @@ const ProductCard = ({ product }: {product: Product}) => {
   useEffect(() => {
     const isFavoriteProduct = wishlist.some(p => p.id === product.id);
     setIsFavorite(isFavoriteProduct);
-  }, [wishlist])
+  }, [wishlist, isFavorite, product.id])
 
   const addProduct = () => {
     addToFavorites(product)
@@ -31,12 +31,14 @@ const ProductCard = ({ product }: {product: Product}) => {
 
   return (
     <div className="flex flex-col rounded-lg overflow-hidden">
-      <Link to={`${product.get_absolute_url}`}>
-        {product.imageURL ? (
-          <img className="h-48 w-full md:h-80 lg:h-96 object-cover transition duration-300 transform hover:scale-105 hover:shadow-lg" src={API_URL+product.imageURL} alt={product.name} />
-        ) : (
-          <img className="h-48 w-full md:h-80 lg:h-96 object-cover transition duration-300 transform hover:scale-105 hover:shadow-lg" src={process.env.PUBLIC_URL + '/images/placeholder.png'} alt={product.name} />
-        )}
+      <Link to={`${product.get_absolute_url}`} >
+        <div className='relative h-48 w-full md:h-80 lg:h-96'>
+          <img
+          className="object-cover w-full h-full transition duration-300 transform hover:scale-105 hover:shadow-lg"
+          src={product.imageURL ? API_URL + product.imageURL : process.env.PUBLIC_URL + "/images/placeholder.png"}
+          alt={product.name}
+          />
+        </div>
       </Link>
       <div className="pt-3 flex flex-1 items-center justify-between">
         <h6 className="font-light">{product.name}</h6>

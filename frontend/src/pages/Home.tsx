@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import Hero from '../components/Hero'
+// import Hero from '../components/Hero'
 import Banner from '../components/Banner'
 import Popular from '../components/Popular'
 import Newsletter from '../components/Newsletter'
@@ -9,8 +9,8 @@ const Home = () => {
     document.title = 'Home | MyStore'
   }, [])
   return (
-    <div>
-      <Hero />
+    <div className='w-screen'>
+      <Banner />
       <Popular />
       <Newsletter />
     </div>

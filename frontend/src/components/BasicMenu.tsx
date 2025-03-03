@@ -3,11 +3,13 @@ import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import Button from '@mui/material/Button'
 import {FiMenu} from 'react-icons/fi'
+import { useNavigate } from 'react-router-dom'
 
 
 const BasicMenu = () => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
     const open = Boolean(anchorEl)
+    const nav = useNavigate()
   
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
       setAnchorEl(event.currentTarget)
@@ -39,11 +41,11 @@ const BasicMenu = () => {
             'aria-labelledby': 'basic-button',
           }}
         >
-          <MenuItem onClick={handleClose}>Home</MenuItem>
-          <MenuItem onClick={handleClose}>Search</MenuItem>
-          <MenuItem onClick={handleClose}>Basket</MenuItem>
-          <MenuItem onClick={handleClose}>Favorites</MenuItem>
-          <MenuItem onClick={handleClose}>My Account</MenuItem>
+          <MenuItem onClick={() => {handleClose(); nav('/')}}>Home</MenuItem>
+          <MenuItem onClick={() => {handleClose(); nav('/')}}>Search</MenuItem>
+          <MenuItem onClick={() => {handleClose(); nav('/cart')}}>Basket</MenuItem>
+          <MenuItem onClick={() => {handleClose(); nav('/checkout')}}>Checkout</MenuItem>
+          <MenuItem onClick={() => {handleClose(); nav('/account')}}>My Account</MenuItem>
         </Menu>
       </div>
     )

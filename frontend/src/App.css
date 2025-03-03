@@ -5,7 +5,7 @@
 /* html, body, heading */
 @layer base {
   body {
-    @apply bg-[#e5e5e5] text-black overflow-x-hidden !scrollbar-thin !scrollbar-track-transparent;
+    @apply bg-[#e5e5e5] text-black overflow-x-hidden ;
   }
 
   header {

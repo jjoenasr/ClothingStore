@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import{ ShoppingCartIcon, HeartIcon } from '@heroicons/react/24/outline'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useStore } from '../contexts/StoreContext'
 import OrderSummary from './OrderSummary'
 import ProductCard from './ProductCard'
@@ -48,7 +48,7 @@ const ModalCart = () => {
       { isOpen && (
         <>
         <div className='cartoverlay' onClick={closeModal}></div>
-        <div className={`cartmodal p-16 ${isClosing ? 'closing' : ''}`}>
+        <div className={`cartmodal p-8 md:p-16 ${isClosing ? 'closing' : ''}`}>
           <div className='flex justify-between gap-4'>
             <button className={`flex items-center gap-2 font-medium ${activeTab==='cart' ? 'text-black' : ''}`}
             onClick={() => handleTabChange('cart')}>
@@ -79,8 +79,8 @@ const ModalCart = () => {
           ) : (
             <div className='flex flex-col space-y-2 mt-3'>
             { favorites?.map((product )=> (
-              <div className='w-full p-2'>
-                <ProductCard product={product} key={product.id} />
+              <div className='w-full p-2' key={product.id}>
+                <ProductCard product={product} />
               </div>
               ) )}
             </div>

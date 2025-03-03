@@ -3,7 +3,7 @@ import { getProfile} from '../services/authServices'
 import { getMyOrders } from '../services/storeServices'
 import { useNavigate } from 'react-router-dom'
 import { useStore } from '../contexts/StoreContext'
-import { Item, User, Order } from '../../typings'
+import { User, Order } from '../../typings'
 import OrderSummary from '../components/OrderSummary'
 import { FaSignOutAlt } from 'react-icons/fa'
 
@@ -21,16 +21,15 @@ const Account = () => {
         setMyOrders(orders)
         const profile = await getProfile()
         setUser(profile)
-        //setUser(profile as User | undefined)
         setLoading(false)
-      } catch(error:any){
+      } catch(error:unknown){
         console.error("Error: ", error)
       }
     }
 
     document.title = 'My account | Djackets';
     getMyProfile();
-  }, [])
+  }, [setLoading])
 
   const logout = ()=>{
     removeToken()
@@ -38,7 +37,7 @@ const Account = () => {
   }
   
   return (
-    <div className='flex flex-col space-y-4 p-12 max-w-2xl mx-auto border shadow-md rounded-lg'>
+    <div className='flex flex-col space-y-4 p-12 max-w-2xl mx-auto border shadow-md rounded-lg pt-[96px] lg:pl-10'>
       <div className='flex flex-wrap justify-between'>
         <h1 className='text-4xl font-bold'>Account</h1>
         <button className='btn-dark flex items-center' onClick={logout}>Logout <FaSignOutAlt className='h-4 w-4 ml-2'/></button>

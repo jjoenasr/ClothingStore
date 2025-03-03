@@ -6,8 +6,7 @@ const Newsletter = () => {
     
   }
   return (
-    <div className='box bg-black p-8 flex flex-col lg:flew-row items-center justify-between max-w-6xl mx-auto'>
-      <div className='flex items-center gap-3'>
+    <div className='bg-black p-8 flex flex-col lg:flex-row items-center gap-3 justify-between max-w-6xl mx-auto'>
         <BiSolidChat className='text-white size-32' />
         <div>
           <h2 className='text-white font-bold leading-none uppercase'>Subscribe to our newsletter</h2>
@@ -15,11 +14,10 @@ const Newsletter = () => {
             Get Latest News, Offers and Discounts.
           </p>
         </div>
-        <div className='left w-full p-5 px-8 lg:w-1/2'>
-            <input type='email' className='outline-none w-full p-3' placeholder='guest@example.com' autoFocus required />
+        <div className='w-full max-w-md p-5 px-8'>
+            <input type='email' className='outline-none w-full p-3 rounded-md border border-gray-600 bg-gray-800 text-white' placeholder='guest@example.com' required />
             <button onClick={handleClick} className='btn-success mt-4'>Subscribe</button>
         </div>
-    </div>
     </div>
   )
 }

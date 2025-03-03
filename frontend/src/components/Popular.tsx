@@ -1,34 +1,25 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Product } from '../../typings'
-import { useStore } from '../contexts/StoreContext'
 import { getProducts } from '../services/storeServices'
 import ProductCard from './ProductCard'
 import { MagnifyingGlassIcon} from '@heroicons/react/24/solid'
 import {AdjustmentsHorizontalIcon} from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
+import { useQuery } from "@tanstack/react-query";
 
 const Popular = () => {
-    const [products, setProducts] = useState<Product[]>([])
-    const {setLoading} = useStore()
+    // Fetch products using React Query
+    const { data: products } = useQuery<Product[]>({
+        queryKey: ["products"],
+        queryFn: getProducts,
+        staleTime: 1000 * 60 * 15, // Cache for 5 minutes
+    });
 
-    useEffect(()=>{
-        const fetchProducts = async() =>{
-        try {
-            setLoading(true)
-            const products = await getProducts()
-            setProducts(products)
-            setLoading(false)
-        } catch(error:any){
-            console.error("Error: ", error)
-        }
-        }
-        fetchProducts();
-    }, [])
     return (
         <div>
             { products? (
                 <div className='bg-white text-black py-8 '>
-                    <nav className="w-full z-30 top-0 py-1">
+                    <nav className="w-full z-30 top-0 py-1 px-6">
                         <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-1 py-3">
                             <Link className="uppercase font-bold text-gray-800 text-xl " to="#">
                                 Popular

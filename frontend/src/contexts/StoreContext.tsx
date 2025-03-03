@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer, useEffect, useState } from 'react';
+import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import { Item, Product } from '../../typings'
 
 interface Action {
@@ -174,7 +174,6 @@ const reducer = (state:State, action: any) => {
 // Create a provider component
 export const ShopContextProvider: React.FC<{ children: React.ReactNode }> = ({ children} ) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [cart, setCart] = useState<Item[]>([]);
 
   const addToCart = (item:Item) => {
       setTimeout(() => {

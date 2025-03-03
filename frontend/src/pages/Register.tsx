@@ -36,14 +36,17 @@ const Register = () => {
                 });
                 navigate('/login');
     
-            } catch (error: any) {
-                setErrors(prevErros => [...errors, `Error: ${error.message}`]);
-                console.error(error);
+            } catch (error: unknown) {
+                if (error instanceof Error) {
+                    const e = error as Error;
+                    setErrors(prevErrors => [...prevErrors, `Error: ${e.message}`]);
+                    console.error(error);
+                }
             }
         }
     }
     return (
-        <div className='w-full max-w-md mx-auto pt-8'>
+        <div className='w-full max-w-md mx-auto pt-[96px] lg:pl-10'>
             <form className="bg-white shadow-md rounded px-8 pt-6 pb-6 mb-4" onSubmit={handleSubmit}>
                 <h2 className='font-bold text-center mb-6 text-4xl'>Sign Up</h2>
                 <div className="flex flex-wrap -mx-2">

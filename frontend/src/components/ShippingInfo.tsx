@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { ShippingAddress } from '../../typings';
 
 const ShippingInfo = ({onSubmit}: {onSubmit:(shippingAddress: ShippingAddress) => void;}) => {

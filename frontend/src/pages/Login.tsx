@@ -15,20 +15,22 @@ const Login = () => {
     const handleSubmit = async(event: React.FormEvent) => {
         event.preventDefault();
         try {
-        removeToken()
-        const token = await login(email, password)
-        setToken(token)
-        console.log('Submitted:', { email, password });
-        navigate('/store');
-        } catch(error:any){
-            setErrors(prevErrors => [...prevErrors, `Error: ${error.message}`]);
-            console.error(error);
+            removeToken()
+            const token = await login(email, password)
+            setToken(token)
+            console.log('Submitted:', { email, password });
+            navigate('/store');
+        } catch(error: unknown){
+            if (error instanceof Error) {
+                const e = error as Error;
+                setErrors(prevErrors => [...prevErrors, `Error: ${e.message}`]);
+                console.error(error);
+            }
         }
-
-
     }
+
     return (
-        <div className="w-full max-w-xs mx-auto pt-8">
+        <div className="w-full max-w-xs mx-auto pt-[96px] lg:pl-10">
             <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mt-4 mb-4" onSubmit={handleSubmit}>
                 <h2 className='font-bold text-center mb-6 text-4xl'>Sign In</h2>
                 <div className="mb-4">
