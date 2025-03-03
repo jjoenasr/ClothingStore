@@ -32,21 +32,21 @@ const CartItem = ({item, removeFromCart}:{item:Item, removeFromCart: (data: Item
     return (
         <div className="flex items-stretch text-center pb-10 mb-10 border-b border-gray-200 ">
             <Link to={`${item.product.get_absolute_url}`}>
-            <div className='flex-1'>
+            <div style={{ flex: 1 }}>
                 <img width={120} height={120} src={item.product.imageURL ? API_URL + item.product.imageURL : process.env.PUBLIC_URL + "/images/placeholder.png"} alt={item.product.name} /> 
             </div>   
             </Link>
            
-            <div className='flex-2'>
+            <div style={{ flex: 2 }}>
                 <p>{item.product.name}</p>
             </div>
-            <div className='flex-1'>
+            <div style={{ flex: 1 }}>
                 <p className=''>{item.size}</p>
             </div>
-            <div  className='flex-1'>
+            <div  style={{ flex: 1 }}>
                 <p className=''>${item.product.price}</p>
             </div>
-            <div  className='flex-2'>
+            <div style={{ flex: 2 }}>
                 <div className="relative flex items-center max-w-[6rem] h-10 mt-2 mx-2">
                     <button
                     className="bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-s-lg px-3 focus:ring-gray-100 focus:ring-2 focus:outline-none h-full"
@@ -66,10 +66,10 @@ const CartItem = ({item, removeFromCart}:{item:Item, removeFromCart: (data: Item
                     </button>
                 </div>
             </div>
-            <div className='flex-1'>
+            <div style={{ flex: 1 }}>
                 <p>${(item.product.current_price * item.quantity).toFixed(2)}</p>
             </div>
-            <div className='flex-1'>
+            <div style={{ flex: 1 }}>
                 <FaTrash className='text-red-500 chg-quantity cursor-pointer' onClick={remove} />
             </div>
             

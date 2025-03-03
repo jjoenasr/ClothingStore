@@ -33,14 +33,24 @@ const Cart = () => {
 
     <div className="w-full md:w-2/3">
         <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-          <div className="hidden md:flex items-center text-center mb-3 pb-3 border-b text-gray-700 font-semibold">
-              <div className="flex-1"></div> {/* Empty for spacing */}
-              <div className="flex-2">Item</div>
-              <div className="flex-1">Size</div>
-              <div className="flex-1">Price</div>
-              <div className="flex-2">Quantity</div>
-              <div className="flex-1">Total</div>
-              <div className="flex-1"></div> {/* Empty for spacing */}
+          <div className="flex items-center text-center mb-3 pb-3 border-b text-gray-700 font-semibold">
+          <div style={{ flex: 1 }}></div>
+                <div style={{ flex: 2 }}>
+                    <strong>Item</strong>
+                </div>
+                <div style={{ flex: 1 }}>
+                    <strong>Size</strong>
+                </div>
+                <div style={{ flex: 1 }}>
+                    <strong>Price</strong>
+                </div>
+                <div style={{ flex: 2 }}>
+                    <strong>Quantity</strong>
+                </div>
+                <div style={{ flex: 1 }}>
+                    <strong>Total</strong>
+                </div>
+                <div style={{ flex: 1 }}></div>
           </div>
             
             {cart.length > 0 ? (
