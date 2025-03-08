@@ -1,9 +1,9 @@
 # ClothingStore
 
-## Description
+## 🚀 Description
 Full-stack Clothing Store web application built with Django REST Framework (DRF) as backend, React as frontend and TailwindCSS for styling.
 
-## Screenshots
+## 🖼️ Screenshots
 
 ### HomePage
 ![HomePage](screenshots/Home.png)
@@ -18,7 +18,13 @@ Full-stack Clothing Store web application built with Django REST Framework (DRF)
 ### Account
 ![Account](screenshots/Account.png)
 
-## Setup
+## ⚙️ Prerequisites
+
+Before you begin, ensure you have the following installed:
+- Python 3.x
+- Node.js and npm
+
+## 📥 Setup
 1. Clone the repository
 ```
 git clone https://github.com/jjoenasr/ClothingStore
@@ -37,7 +43,7 @@ cd frontend
 npm install
 ```
 
-## Usage
+## 🎯 Usage
 1. Run the backend server
 ```
 cd backend
